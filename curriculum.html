@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>🦄 Ana Isabel Fonseca</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Work+Sans:300,600");
+
+      :root {
+        --background: #white;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: white;
+        font-family: "Work Sans", sans-serif;
+        font-weight: 200;
+      }
+
+      /* navigation styles start here */
+
+      header {
+        border-bottom: 1.2px solid #d65555;
+        background: white;
+        /* text-align: center; */
+        display: flex;
+        flex-wrap: wrap;
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+        height: 50px;
+      }
+
+      button:hover {
+        cursor: pointer;
+      }
+
+      .page-content h1 {
+        font-family: "Work Sans", sans-serif;
+        font-weight: 300;
+        color: #384349;
+        text-transform: uppercase;
+        font-size: 30px;
+      }
+
+      .page-content {
+        font-family: "Work  Sans", sans-serif;
+        padding-top: 95px;
+      }
+
+      .basic-info {
+        font-family: "Work Sans", sans-serif;
+        padding-left: 35px;
+        color: #000;
+      }
+
+      .basic-info h1 {
+        text-decoration: underline #ee8888;
+      }
+
+      .age {
+        font-size: 13px;
+      }
+
+      .info-degree {
+        display: inline-block;
+        margin: 5px 0px;
+      }
+
+      .info-email {
+        font-family: "Work Sans", sans-serif;
+        font-size: 15px;
+        background: white;
+        border: #ee8888 solid 1px;
+        border-radius: 5px;
+        padding: 3px;
+        transition: 200ms ease all;
+      }
+
+      .info-email:hover {
+        background: #eb9191;
+        color: white;
+      }
+
+      .button {
+        margin-bottom: 25px;
+        border: none;
+      }
+
+      .nav-toggle {
+        position: absolute !important;
+        top: -9999px !important;
+        left: -9999px !important;
+      }
+
+      .nav-toggle:focus ~ .nav-toggle-label {
+        outline: 1px white;
+      }
+
+      .nav-toggle-label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-left: 1em;
+        height: 100%;
+        display: flex;
+        flex-flow: column;
+        align-items: right;
+      }
+
+      .nav-toggle-label span,
+      .nav-toggle-label span::before,
+      .nav-toggle-label span::after {
+        display: block;
+        background: white;
+        height: 2px;
+        width: 2em;
+        border-radius: 10px;
+        position: relative;
+      }
+
+      .nav-toggle-label span::before,
+      .nav-toggle-label span::after {
+        content: "";
+        position: absolute;
+      }
+
+      .nav-toggle-label span::before {
+        bottom: 7px;
+      }
+
+      .nav-toggle-label span::after {
+        top: 7px;
+      }
+
+      nav {
+        /* position: absolute; */
+        text-align: left;
+        top: 100%;
+        left: 0;
+        background: var(--background);
+        width: 100%;
+        transform: scale(1, 0);
+        transform-origin: top;
+        transition: transform 300ms ease-in-out;
+      }
+
+      nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      nav li {
+        margin-bottom: 1em;
+        margin-left: 1em;
+      }
+
+      nav a {
+        color: #384349;
+        text-decoration: none;
+        font-size: 1.3 rem;
+        text-transform: uppercase;
+        opacity: 0;
+        font-weight: 450;
+        transition: opacity 150ms ease-in-out;
+      }
+
+      nav a:hover {
+        color: #ee8888;
+      }
+
+      .nav-toggle:checked ~ nav {
+        transform: scale(1, 1);
+      }
+
+      .nav-toggle:checked ~ nav a {
+        opacity: 1;
+        transition: opacity 250ms ease-in-out 250ms;
+      }
+
+      @media screen and (min-width: 800px) {
+        .nav-toggle-label {
+          display: none;
+        }
+
+        header {
+          display: grid;
+          grid-template-columns: 1fr auto minmax(600px, 6fr) 1fr;
+        }
+
+        .logo {
+          grid-column: 2 / 3;
+        }
+
+        nav {
+          /* edge support */
+
+          position: relative;
+          text-align: left;
+          transition: none;
+          transform: scale(1, 1);
+          background: none;
+          top: initial;
+          left: 100px;
+
+          /* end Edge support stuff */
+
+          grid-column: 3 / 4;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+        }
+
+        nav ul {
+          display: flex;
+          justify-content: space-around;
+        }
+
+        nav li {
+          margin-left: 2em;
+          margin-bottom: 0px;
+        }
+
+        nav a {
+          opacity: 1;
+          position: relative;
+        }
+
+        nav a::before {
+          content: "";
+          display: block;
+          height: 3px;
+          background: #eb9191;
+          position: absolute;
+          top: -0.75em;
+          left: 0;
+          right: 0;
+          transform: scale(0, 1);
+          transition: transform ease-in-out 250ms;
+        }
+
+        nav a:hover::before {
+          transform: scale(1, 1);
+        }
+      }
+
+      .fix-me {
+        background: transparent;
+        display: inline-block;
+        border: none;
+        color: #000;
+        text-decoration: none;
+        position: fixed;
+        bottom: 40px;
+        right: 100px;
+      }
+
+      .fix-me::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #eb9191;
+        transition: width 0.3s;
+      }
+
+      .fix-me:hover::after {
+        width: 100%;
+      }
+
+      .main-footer {
+        color: black;
+        background-color: white;
+        bottom: 25px;
+        right: 50%;
+        left: 50%;
+      }
+
+      .about {
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        display: flex;
+        flex: row;
+        margin: 0 auto;
+        padding-left: 30px;
+      }
+
+      .profile-picture img {
+        width: 160px;
+        height: 160px;
+        background-color: transparent;
+        border-radius: 50%;
+      }
+
+      .topics {
+        display: block;
+        padding: 35px;
+      }
+
+      h3 {
+        font-family: "Work-sans" sans-serif;
+        padding-left: 20px;
+        font-weight: 100;
+        color: #2f383d;
+      }
+
+      p {
+        line-height: 1.6;
+        font-family: "Work Sans", sans-serif;
+        padding-left: 30px;
+        width: 100%;
+        font-size: 15px;
+        font-weight: 500;
+        text-align: justify;
+        text-justify: inter-word;
+        text-indent: 20px;
+        color: #080a0a;
+      }
+
+      form {
+        display: flex;
+        flex-flow: column;
+
+        max-width: 83.333333%;
+        width: 100%;
+      }
+
+      label {
+        font-family: "Work Sans", sans-serif;
+        font-size: 18px;
+        color: #272f33;
+        position: relative;
+
+        max-width: 83.333333%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+      }
+
+      .form-name label {
+        padding-right: 40px;
+      }
+
+      .form-email label {
+        padding-right: 36px;
+      }
+
+      .form-message label {
+        padding-right: 20px;
+      }
+
+      input,
+      textarea {
+        font-family: "Work Sans", sans-serif;
+        font-size: 15px;
+        padding: 4px;
+        width: 60%;
+        border: 1px solid #8d9599;
+        border-radius: 3px;
+      }
+
+      .school {
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+      }
+
+      .school h2 {
+        border-left: solid 1px #2f383d;
+        font-family: "Work-sans" sans-serif;
+        text-transform: uppercase;
+        font-size: 20px;
+        padding: 0px 15px;
+        margin-bottom: 30px;
+        font-weight: 50;
+        color: #ee8888;
+      }
+
+      .front {
+        min-height: 100%;
+        background: linear-gradient(
+            0deg,
+            rgba(238, 136, 136, 0.45),
+            rgba(238, 136, 136, 0.45)
+          ),
+          url(https://images.unsplash.com/photo-1508873699372-7aeab60b44ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);
+        background-size: cover;
+        width: 100%;
+        height: 700px;
+        padding-top: 95px;
+      }
+
+      .front h1 {
+        text-align: center;
+        font-family: "Work Sans", sans-serif;
+        font-size: 65px;
+        color: white;
+        font-weight: 400;
+        padding-top: 160px;
+        margin-bottom: 0;
+        padding-left: 10px;
+      }
+
+      .front h2 {
+        text-align: center;
+        font-family: "Work Sans", sans-serif;
+        font-size: 25px;
+        color: white;
+        font-weight: 400;
+        padding-left: 10px;
+      }
+
+      .a{
+
+        text-decoration: none;
+      }
+
+      .mail {
+        text-decoration: none;
+        color: #2f383d;
+      }
+
+      .mail:hover {
+        cursor: pointer;
+      }
+
+      .title-link {
+        color: #2f383d;
+        text-decoration: none;
+      }
+
+      .isep {
+        text-decoration: underline #eb9191;
+      }
+
+      .github {
+        padding: 8px;
+        background: #ee8888;
+        color: white;
+        border: none;
+        border-radius: 45px;
+        box-shadow: 0px 7px 16px rgba(0, 0, 0, 0.3);
+        transition: 200ms ease all;
+      }
+
+      .github:hover {
+        color: #ee8888;
+        background: white;
+        cursor: pointer;
+      }
+
+      .experience {
+        padding-top: 25px;
+      }
+
+      .experience h2 {
+        position: relative;
+        font-family: "Work-sans" sans-serif;
+        text-transform: uppercase;
+        font-size: 20px;
+        padding: 20px;
+        font-weight: 70;
+        z-index: 1;
+        overflow: hidden;
+        text-align: center;
+        color: #ee8888;
+      }
+      .experience h2:before,
+      .experience h2:after {
+        position: absolute;
+        top: 51%;
+        overflow: hidden;
+        width: 50%;
+        height: 1px;
+        content: "\a0";
+        background-color: #7a7d80;
+      }
+      .experience h2:before {
+        margin-left: -50%;
+        text-align: right;
+      }
+
+      .experience-posts {
+        display: flex;
+        width: 90%;
+        align-content: center;
+        padding-left: 10%;
+        flex-flow: row;
+      }
+
+      .individual-exp {
+        width: 25%;
+        background: #f6f6f6;
+
+        opacity: 0.5;
+        padding-right: 35px;
+        margin: 0 20px;
+      }
+
+      .exp-date {
+        font-family: "Work Sans", sans-serif;
+        font-size: 12px;
+        color: rgb(114, 113, 113);
+      }
+
+      .contact-me {
+        margin-left: 20%;
+        margin-right: auto;
+        width: 100%;
+        text-align: left;
+      }
+
+      .contact-me h2 {
+        text-align: left;
+        font-family: "Work Sans", sans-serif;
+        font-size: 35px;
+        color: #ee8888;
+        font-weight: 600;
+        padding-left: 10px;
+      }
+
+      .send {
+        padding: 3px;
+        width: 10%;
+        margin-left: 50px;
+        border: 1px solid #ee8888;
+        background: #ee8888;
+        color: white;
+        box-shadow: 0px 7px 16px rgba(0, 0, 0, 0.5);
+      }
+
+      .send:hover {
+        background: white;
+        color: #ee8888;
+        cursor: pointer;
+      }
+
+      .skills {
+        padding: 100px 0px 10px 0;
+      }
+
+      .skills-list {
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        text-align: center;
+      }
+
+      .skills h2 {
+        text-align: center;
+        text-transform: uppercase;
+        font-family: "Work Sans", sans-serif;
+        font-size: 25px;
+        color: #ee8888;
+        font-weight: 500;
+        padding-left: 10px;
+      }
+
+      .skills ul {
+        align-items: center;
+        color: #384349;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      .skills li {
+        margin-bottom: 1rem;
+        margin-right: 0.5rem;
+        padding: 0.25rem 1rem;
+        background-color: #f1f5f7;
+        white-space: nowrap;
+      }
+
+      .form-element {
+        display: flex;
+        flex-flow: row;
+        padding: 30px;
+      }
+    </style>
+  </head>
+
+  <header>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <nav>
+      <ul>
+        <li>
+          <a href="#A" id="abcd">About</a>
+        </li>
+        <li><a href="#E" id="exp">Education</a></li>
+        <li><a href="#B" id="exp">Experience</a></li>
+        <li><a href="#C" id="skills">Skills</a></li>
+        <li><a href="#D" id="contact">Contacts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <body>
+    <div class="front">
+      <h1>Ana Isabel Fonseca</h1>
+      <h2>Computing Enginneering | ISEP</h2>
+    </div>
+    <div class="page-content" id="A">
+      <div class="about">
+        <div class="profile-picture">
+          <a
+            href="https://www.linkedin.com/in/anaisabelfonseca/"
+            target="_blank"
+            ><img
+              src="https://media.licdn.com/dms/image/C5603AQGIp7XCV-IvHQ/profile-displayphoto-shrink_200_200/0?e=1572480000&v=beta&t=d3MPcoUOBKKuq6k_2nyaiH3QfBomJj8lu-4zDa4cu2w"
+          /></a>
+        </div>
+        <div class="basic-info">
+          <h1>About Me</h1>
+          <span class="age">Porto, <span class="my-age"></span> years old</span
+          ><br />
+          <span class="info-degree"
+            >Third year in Computing Engineering, ISEP</span
+          ><br />
+          <button class="info-email">
+            <a class="mail" href="mailto:a-fonseca@outlook.com"
+              >a-fonseca@outlook.com</a
+            >
+          </button>
+        </div>
+      </div>
+      <div class="topics" id="E">
+        <div class="school">
+          <h2>Education</h2>
+          <h3>
+            Degree in Computing Engineering
+            <span class="exp-date">(2017-current)</span>
+          </h3>
+          <p>
+            During my time at
+            <a
+              class="isep"
+              href="https://www.isep.ipp.pt/Course/Course/26"
+              target="_blank"
+            >
+              Instituto Superior de Engenharia do Porto</a
+            >
+            I have developed 8 JAVA projects (an estimate of 600 hours
+            developing in that programming language). I used AGILE SCRUM
+            methodology in all the planning process, where I carried out both
+            the Scrum Master and one of the developers part. Furthermore. aside
+            from JAVA, I have an estimate experience of 150 hours of SQL, 180
+            hours in PLSQL and 200 hours in C and Assembly.
+          </p>
+        </div>
+        <br />
+        <div class="info" id="B">
+          <div class="experience">
+            <h2>Work Experience</h2>
+            <br /><br /><br />
+
+            <div class="experience-posts">
+              <div class="individual-exp">
+                <h3>
+                  Internship at MOSANO
+                  <div class="exp-date">(July 2019)</div>
+                </h3>
+                <p>
+                  In my internship @
+                  <a class="isep" href="https://mosano.eu/" target="_blank">
+                    MOSANO</a
+                  >, where I worked as a Front-End developer, I gained
+                  experience in technologies such as Gatsby, Node JS, React,
+                  JavaScript as well as HTML and CSS. <br /><br /><button
+                    class="github"
+                  >
+                    MOSANO Project GitHub
+                  </button>
+                </p>
+              </div>
+              <br />
+              <div class="individual-exp">
+                <h3>
+                  <a
+                    class="title-link"
+                    href="https://www.nei-isep.org/"
+                    target="_blank"
+                    >Núcleo de Estudantes de Engenharia do ISEP</a
+                  >
+                  <div class="exp-date">(February 2017-current)</div>
+                </h3>
+                <p>
+                  As a member and former vice-president of
+                  <a
+                    class="isep"
+                    href="https://www.nei-isep.org/"
+                    target="_blank"
+                    >NEI-ISEP</a
+                  >
+                  I managed a 15 people group in order to organize 3 events (<a
+                    class="isep"
+                    href="http://fallstack.nei-isep.org/"
+                    target="_blank"
+                    >FallStack</a
+                  >,
+                  <a
+                    class="isep"
+                    href="https://www.nei-isep.org/levelup/"
+                    target="_blank"
+                    >Level-Up</a
+                  >
+                  and
+                  <a
+                    class="isep"
+                    href="http://gamejam.nei-isep.org/"
+                    target="_blank"
+                    >Level-Up: GameJam</a
+                  >). These all happened in
+                  <a
+                    class="isep"
+                    href="https://www.isep.ipp.pt/Course/Course/26"
+                    target="_blank"
+                  >
+                    ISEP</a
+                  >.<br />
+                  In FallStack we had an estimate of 80 registered students and
+                  faculty and 15 well-known Software Development companies, in
+                  order to promote student-company communication and leverage
+                  internships.
+                </p>
+              </div>
+              <br />
+              <div class="individual-exp">
+                <h3>
+                  <a
+                    class="title-link"
+                    href="https://www.aeisep.pt/"
+                    target="_blank"
+                    >Associação de Estudantes do ISEP</a
+                  >
+                  <div class="exp-date">(January 2019-current)</div>
+                </h3>
+                <p>
+                  Member of the Professional Outlets Council, we organized the
+                  <em
+                    ><a
+                      class="isep"
+                      href="https://jee.aeisep.pt/"
+                      target="_blank"
+                      >IV Jornadas de Emprego e Engenharia do ISEP</a
+                    ></em
+                  >, which is a three day event that promotes student-company
+                  relationships and student entrepreneurship. In this event, we
+                  can watch companies explain technical information used in
+                  their projects.
+                </p>
+              </div>
+              <br />
+              <div class="individual-exp">
+                <h3>
+                  <a
+                    class="title-link"
+                    href="https://www.isep.ipp.pt/New/ViewNew/6027"
+                    target="_blank"
+                    >ISEP Ambassador</a
+                  >
+                  <div class="exp-date">(May 2019-current)</div>
+                </h3>
+                <p>
+                  As an
+                  <a
+                    class="isep"
+                    href="https://www.isep.ipp.pt/New/ViewNew/6027"
+                    target="_blank"
+                    >ISEP Ambassador</a
+                  >
+                  it is my duty to welcome ERASMUS students and help them
+                  integrate and to promote the institution as a student next to
+                  faculty, parents, other students and future students. This is
+                  done mainly in speeches in ISEP or high schools.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills" id="C">
+            <h2>Skills</h2>
+            <div class="skills-list">
+              <ul>
+                <li>English: B2</li>
+                <li>Portuguese: Native</li>
+                <li>JAVA</li>
+                <li>C</li>
+                <li>Assembly</li>
+                <li>JavaScript</li>
+                <li>SQL</li>
+                <li>PLSQL</li>
+                <li>Photoshop</li>
+                <li>Office</li>
+                <li>Agile Methodology</li>
+                <li>HTML</li>
+                <li>CSS</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+      <br />
+
+      <div class="contact-me" id="D">
+        <h2>Contact Me</h2>
+        <form
+          action="https://formspree.io/w.ana.isabel.fonseca@gmail.com"
+          method="POST"
+          target="_blank"
+        >
+          <div class="form-element form-name">
+            <label for="">Name:</label>
+            <input type="text" name="name" placeholder="First and Last Names" />
+          </div>
+          <div class="form-element form-email">
+            <label for="">E-mail:</label>
+            <input type="email" name="email" placeholder="Your e-mail" />
+          </div>
+          <div class="form-element form-message">
+            <label for="">Message:</label>
+            <textarea
+              type="text"
+              name="message"
+              placeholder="Tell me Something"
+            ></textarea>
+          </div>
+          <br />
+          <div class="btn-send">
+            <input
+              onclick="let name = prompt(`What is your name?`); alert(`Your message will be sent ${name}. Just complete the spam procedure. 😊`)"
+              class="send"
+              type="submit"
+              value="SEND"
+            />
+          </div>
+
+          <br />
+          <br />
+          <br />
+          <br />
+        </form>
+      </div>
+    </div>
+
+    <button class="fix-me">
+      <img
+        src="https://raw.githubusercontent.com/anaisabelfonseca/mosano-eu/master/src/Layout/img/up-arrow.png"
+      />
+    </button>
+  </body>
+
+  <script>
+    //Make arrow-up work smoothly
+    function scrollUp() {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+      });
+    }
+
+    //Making age change automatically
+    let currentYear = new Date().getFullYear();
+    let myYearOfBirth = 1999;
+    let age = currentYear - myYearOfBirth;
+
+    let ageSpace = (document.querySelector(".my-age").innerHTML = age);
+
+    let btn = document.querySelector(".fix-me");
+    btn.addEventListener("click", scrollUp);
+
+    //Make MOSANO GitHub button work
+    function goToGithub() {
+      window.open("https://github.com/anaisabelfonseca/mosano-eu/");
+    }
+
+    let mosanoBtn = document.querySelector(".github");
+    mosanoBtn.addEventListener("click", goToGithub);
+
+    //Nav-bar working
+    $("a.page-scroll").click(function() {
+      if (
+        location.pathname.replace(/^\//, "") ==
+          this.pathname.replace(/^\//, "") &&
+        location.hostname == this.hostname
+      ) {
+        var target = $(this.hash);
+        target = target.length
+          ? target
+          : $("[name=" + this.hash.slice(1) + "]");
+        if (target.length) {
+          $("html,body").animate(
+            {
+              scrollTop: target.offset().top - 50
+            },
+            900
+          );
+          return false;
+        }
+      }
+    });
+  </script>
+</html>
